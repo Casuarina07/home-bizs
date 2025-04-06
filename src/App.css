@@ -36,3 +36,52 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+}
+
+header {
+  background-color: #fff;
+  padding: 16px 32px;
+  border-bottom: 1px solid #eaeaea;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 24px;
+  color: #1a1a1a;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+}
+
+main {
+  padding: 32px;
+  text-align: center;
+}
+
+footer {
+  padding: 16px;
+  background-color: #fafafa;
+  border-top: 1px solid #eaeaea;
+  text-align: center;
+  margin-top: 40px;
+}
+
