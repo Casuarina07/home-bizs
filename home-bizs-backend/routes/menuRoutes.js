@@ -4,8 +4,14 @@ const db = require("../db");
 
 // GET all menu items
 router.get("/", async (req, res) => {
-  const [items] = await db.query("SELECT * FROM menu_items");
-  res.json(items);
+  const [rows] = await db.query(`
+        SELECT m.*, r.name AS restaurant_name
+        FROM menu_items m
+        JOIN restaurants r ON m.restaurant_id = r.id
+        ORDER BY r.name
+      `);
+
+  res.json(rows);
 });
 
 // POST new menu item
