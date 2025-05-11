@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 import "./Header.css";
 import logo from "../assets/logo_transparent.png";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const isLoggedIn = !!localStorage.getItem("token");
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/"); // or redirect anywhere
+  };
   return (
     <header className="header">
       <div className="logo">
@@ -21,9 +27,27 @@ const Header = () => {
           <li>
             <a href="/menu">Menu</a>
           </li>
-          <li>
-            <a href="/login">Login</a>
-          </li>
+
+          {!isLoggedIn ? (
+            <>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+              <a href="/Register">Register</a>
+            </>
+          ) : (
+            <button
+              onClick={handleLogout}
+              style={{
+                border: "none",
+                background: "none",
+                cursor: "pointer",
+                color: "blue",
+              }}
+            >
+              Logout
+            </button>
+          )}
         </ul>
       </nav>
 

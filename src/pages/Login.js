@@ -1,2 +1,4 @@
-const Login = () => <div className="p-8 text-center">Login Page!</div>;
+const Login = () => <p>Don't have an account? <a href="/register">Register here</a></p>
+
+;
 export default Login;
