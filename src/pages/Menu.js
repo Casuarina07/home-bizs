@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import api from "../api";
 
 function Menu() {
   const [groupedMenu, setGroupedMenu] = useState({});
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/api/menu")
+      .get(`/api/menu`)
       .then((res) => {
         console.log("Results returned:", JSON.stringify(res.data, null, 2));
         const grouped = {};

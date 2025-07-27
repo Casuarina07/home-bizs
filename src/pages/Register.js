@@ -3,6 +3,7 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import api from "../api";
 
 function Register() {
   const handleGoogleSuccess = async (credentialResponse) => {
@@ -16,10 +17,7 @@ function Register() {
     };
 
     try {
-      const res = await axios.post(
-        "http://localhost:3001/api/users/register",
-        userData
-      );
+      const res = await axios.post("/api/users/register", userData);
       localStorage.setItem("token", res.data.token);
 
       // 🎉 Show toast depending on user status

@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../api";
 
 function ItemDetail() {
   const { id } = useParams();
@@ -10,7 +11,7 @@ function ItemDetail() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3001/api/menu/${id}`)
+      .get(`/api/menu/${id}`)
       .then((res) => setItem(res.data))
       .catch((err) => console.error(err));
   }, [id]);
