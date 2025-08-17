@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(1100px 600px at 70% 40%, #ffd39a33 0%, transparent 70%),
+              radial-gradient(900px 500px at 85% 20%, #ffc7ff33 0%, transparent 70%),
+              #fff;
+}
+.hero__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 1.25rem 3rem;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.hero__title {
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 1rem;
+}
+.hero__subtitle {
+  color: #6b6b6b;
+  margin-bottom: 1.5rem;
+}
+.hero__actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+/* Dropdown */
+.hero__select {
+  position: relative;
+  min-width: 280px;
+  border: 1px solid #efefef;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 20px rgba(0,0,0,.06);
+}
+.hero__select select {
+  appearance: none;
+  width: 100%;
+  padding: 1rem 2.5rem 1rem 1.25rem;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+.hero__select-caret {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+}
+/* Button */
+.hero__cta {
+  background: #f3a500;
+  border: none;
+  color: #111;
+  font-weight: 800;
+  border-radius: 14px;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(243,165,0,.35);
+}
+.hero__cta:hover { background: #d68c00; }
+/* Right visuals */
+.hero__visual { position: relative; }
+.hero__img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 28px;
+}
+.hero__frame {
+  position: absolute;
+  inset: 20px;
+  border: 8px solid #fff;
+  border-radius: 32px;
+}
+.hero__stat {
+  position: absolute;
+  top: 24px; right: 24px;
+  display: flex; gap: .75rem; align-items: center;
+  background: #fff;
+  border-radius: 16px;
+  padding: .9rem 1rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,.08);
+}
+.hero__dot { width: 16px; height: 16px; border-radius: 50%; background: #f3a500; }
+.hero__highlight {
+  position: absolute;
+  bottom: 16px; left: 16px;
+  display: flex; gap: .9rem; align-items: center;
+  background: #fff;
+  border-radius: 18px;
+  padding: .9rem 1rem;
+  box-shadow: 0 10px 20px rgba(0,0,0,.1);
+}
+.hero__highlight img {
+  width: 64px; height: 64px; border-radius: 12px; object-fit: cover;
+}
+.hero__highlight-sub { font-size: .85rem; color: #888; }
+.hero__highlight-title { font-weight: 800; }

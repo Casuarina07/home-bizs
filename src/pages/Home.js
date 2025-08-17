@@ -1,2 +1,11 @@
-const Home = () => <div className="p-8 text-center">Welcome to HomeBiz!</div>;
-export default Home;
+import HomeHero from "../components/HomeHero";
+import "../styles/HomeHero.css";
+
+export default function Home() {
+  return (
+    <div className="home-page">
+      <HomeHero />
+      {/* You can add more sections here later */}
+    </div>
+  );
+}

@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import MainLayout from "./layout/MainLayout";
 import "./App.css";
 import ItemDetail from "./pages/ItemDetail";
+import RestaurantMenu from "./pages/RestaurantMenu";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/menu/:id" element={<ItemDetail />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/restaurant/:id" element={<RestaurantMenu />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>
