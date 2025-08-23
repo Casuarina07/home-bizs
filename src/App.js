@@ -7,6 +7,7 @@ import MainLayout from "./layout/MainLayout";
 import "./App.css";
 import ItemDetail from "./pages/ItemDetail";
 import RestaurantMenu from "./pages/RestaurantMenu";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/restaurant/:id" element={<RestaurantMenu />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </MainLayout>
     </BrowserRouter>

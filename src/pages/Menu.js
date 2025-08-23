@@ -3,8 +3,12 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../styles/Menu.css";
+import api from "../api";
+import { useCart } from "../context/CartContext";
+import { toast } from "react-toastify";
 
 function Menu() {
+  const { add } = useCart();
   const [groups, setGroups] = useState([]); // [{ id, name, items }]
   const [qty, setQty] = useState({});
   const [loading, setLoading] = useState(true);
@@ -35,6 +39,19 @@ function Menu() {
       .catch(() => setError("Failed to load menu."))
       .finally(() => setLoading(false));
   }, []);
+
+  const handleAdd = async (menuItemId) => {
+    try {
+      console.log("Function triggered");
+      const q = qty[menuItemId] || 1;
+      await add(menuItemId, q);
+      console.log("✅ add() finished successfully");
+      toast.success("Added to cart");
+    } catch (e) {
+      console.error(e);
+      toast.error("Could not add to cart. Please login?");
+    }
+  };
 
   const inc = (id) => setQty((q) => ({ ...q, [id]: (q[id] || 1) + 1 }));
   const dec = (id) =>
@@ -70,11 +87,9 @@ function Menu() {
                     <Link to={`/menu/${item.id}`} className="menu-link">
                       <h4 className="menu-item-name">{item.name}</h4>
                     </Link>
-
                     <p className="menu-price">
                       ${Number(item.price).toFixed(2)}
                     </p>
-
                     <div className="qty-row">
                       <button onClick={() => dec(item.id)} className="qty-btn">
                         −
@@ -84,8 +99,13 @@ function Menu() {
                         +
                       </button>
                     </div>
-
-                    <button className="add-basket-btn">Add to Cart</button>
+                    {/* <button className="add-basket-btn">Add to Cart</button>+{" "} */}
+                    <button
+                      className="add-basket-btn"
+                      onClick={() => handleAdd(item.id)}
+                    >
+                      Add to Cart
+                    </button>
                   </div>
                 </article>
               ))}
