@@ -90,6 +90,9 @@ const Header = () => {
                 {/* fallback if name missing */}
               </li>
               <li>
+                <Link to="/order">Orders</Link>
+              </li>
+              <li>
                 <button
                   onClick={handleLogout}
                   style={{
