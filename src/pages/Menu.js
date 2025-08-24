@@ -6,6 +6,20 @@ import "../styles/Menu.css";
 import api from "../api";
 import { useCart } from "../context/CartContext";
 import { toast } from "react-toastify";
+import { jwtDecode } from "jwt-decode";
+
+let userId = null;
+const token = localStorage.getItem("token");
+if (token) {
+  try {
+    const d = jwtDecode(token);
+    userId = d.id;
+  } catch (e) {
+    console.error("Token decode failed:", e);
+  }
+}
+
+console.log("User ID on Menu:", userId);
 
 function Menu() {
   const { add } = useCart();
@@ -17,7 +31,7 @@ function Menu() {
 
   useEffect(() => {
     axios
-      .get("http://api.home-bizs.com:3001/api/menu")
+      .get("http://localhost:3001/api/menu")
       .then((res) => {
         // Group by restaurant_id
         const byId = new Map();

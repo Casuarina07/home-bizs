@@ -2,6 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./Header.css";
 import logo from "../assets/logo_transparent.png";
 import { Link, useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+
+let userName = null;
+const token = localStorage.getItem("token");
+if (token) {
+  try {
+    const d = jwtDecode(token);
+    userName = d.name;
+  } catch (e) {
+    console.error("Token decode failed:", e);
+  }
+}
+
+console.log("User Name on Menu:", userName);
 
 const Header = () => {
   const navigate = useNavigate();
@@ -72,7 +86,7 @@ const Header = () => {
           ) : (
             <>
               <li style={{ marginRight: 12 }}>
-                Hello{user?.name ? `, ${user.name}` : ""}{" "}
+                Hello{user?.name ? `, ${userName}` : ""}{" "}
                 {/* fallback if name missing */}
               </li>
               <li>

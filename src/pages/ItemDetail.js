@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/ItemDetail.css"; // 👈 Import from styles folder
 
-const API_BASE = "http://api.home-bizs.com:3001/api";
+const API_BASE = "http://localhost:3001/api";
 
 function ItemDetail() {
   const { id } = useParams();

@@ -19,6 +19,7 @@ function Register() {
     try {
       const res = await axios.post("/api/users/register", userData);
       localStorage.setItem("token", res.data.token);
+      console.log("REGISTER -> user:", userData);
 
       // 🎉 Show toast depending on user status
       if (res.data.isNew) {
